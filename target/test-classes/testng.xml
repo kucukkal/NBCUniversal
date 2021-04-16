@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="DemoProject" verbose="10" parallel = "methods" thread-count = "2">
+	<listeners>
+		<listener class-name="com.sample.test.demo.listeners.ExtentReportListener" />
+	</listeners>
+	<test name="Tests" >
+		<!-- Enter group name to execute specific set of tests -->
+		<groups>
+			<run>
+				<include name = "Smoke" />
+				<include name = "Defect" />
+			</run>
+		</groups>
+		<!-- List individual packages to execute below -->
+		<packages>
+			<package name="com.sample.test.demo.tests.*" />
+		</packages>
+	</test>
+</suite>
+
