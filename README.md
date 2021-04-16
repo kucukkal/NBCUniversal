@@ -47,5 +47,28 @@ We will be evaluating
 
 #### Test Cases
 
- 1.  
+Addendum:
+1) Build the project using Maven mvn clean install -U -DskipTests
+2) You can run the test using the testng.xml file in an IDE
+3) ExtentReport is used for reporting, scrrenshots are saved in "screenShot" folder and Extent html report is saved in "results" folder.
+4) Two test groups; Smoke and Defects, have been created. The positive tests (happy paths) are added to "Smoke" group and all the ones that find one issue/problem with the software are added to "Defect" group.
+The test cases in "Smoke" group:
+1) SuccessfulNoTopingOrder - Checks if a small pizza without any topping can be ordered successfully
+2)  SuccessfulOneTopingOrder - Checks if a small pizza with one topping can be ordered successfully
+3)   SuccessfulTwoTopingOrder - Checks if a large pizza with two toppings can be ordered successfully
+4) SuccessfulMultipePizzaOrder -  Checks if three large pizza with two toppings can be ordered successfully
+5) MissingCustomerInformation - Checks if the error messages are displayed when necessary fields are missing (name and phone number) and also checks if the order can be completed after closing the popup and entering values to the missing fields 
+The defects/issues as test cases in "Defect" group:
+1) ChoosingBothPaymentOptions- Chooses both payment option and checks if  a large pizza with double toppings  can be given successfully
+2) MissingPaymentOptions-Does not choose any payment information and checks if  a large pizza with double toppings  can be given successfully  
+3) OrderingNoPizza - enters "0" for the Quantity and check if a  large pizza with double toppings  can be given successfully
+4) CheckingValuesAfterReset: The values are populated first checks if the default values are restored and all the field are cleared following clicking the  Reset button
+5) CheckingTheNameofCustomer- checks if a large pizza with double topping can be ordered successfully when the customer name contains  special characters
+6) CheckingThePhoneNumberOfcustomer -checks if a successful order can be given with a phone number containing special characters and/or letters or missing digits or having extra digits
+7) CheckingTheToppingForNoToppingPizza - choose one topping for a no-topping pizza and checks if a successful order can be given
+8)CheckingTheMissingToppingForOneToppingPizza -  does not choose any topping for an one topping pizza and checks if a successful order can be given
+9)  CheckingTheMissingToppingsForTwoToppingPizza - does not choose any topping for an one topping pizza and checks if a successful order can be given
+
+Note: All the test in "Defect" group are designed to pass to show the expected result (unsuccessful order) but they both fail since the software is designed as it is.
+
 
